@@ -1,0 +1,17 @@
+.\objects\tone.o: src\tone.c
+.\objects\tone.o: .\drivers\platform.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\STM32F4xx.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f401xe.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h
+.\objects\tone.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\tone.o: C:\Users\User\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
+.\objects\tone.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\tone.o: .\drivers\timer.h
+.\objects\tone.o: .\drivers\gpio.h
+.\objects\tone.o: src\tone.h
+.\objects\tone.o: src\delay.h
+.\objects\tone.o: src\queue.h

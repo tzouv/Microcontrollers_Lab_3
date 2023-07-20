@@ -1,0 +1,118 @@
+#include <platform.h>
+#include <uart.h>
+#include <gpio.h>
+#include <timer.h>
+#include "DHT_11.h"
+
+// User define
+#define USER_LED PA_5
+#define USER_BUTTON PC_13
+#define DHT_Pin PA_0
+#define CPU_CLOCK 10000000
+
+// Global variables
+uint8_t button_pressed = 0;						// A variable to save how many times the button was pressed
+uint8_t Timer_Period = 2;								// A variable to save the time's period
+uint8_t AEM[5];															// An array to save the AEM
+int i = 0;																				// A helpful variable for the AEM array
+uint8_t AEM_sum = 0;										// A variable to store the sum of the two last AEM digits
+
+// A function to print the temperature
+void read_temperature(){
+	int temperature = 0;
+	temperature = read_Temp_DHT11();
+}
+
+// Function to initialize the LED state
+void LED_init(){
+	gpio_set_mode(USER_LED, Output);
+	gpio_set(USER_LED, LED_OFF);
+}
+
+// ISR for temperatures grater than 25oC
+void high_Temp(){
+	gpio_set(USER_LED, LED_ON);			// Switch on the LED
+}
+
+// ISR for temperatures between 20 and 25oC
+void med_Temp(){
+	
+}
+
+//ISR for temperatures lower than 20oC
+void low_Temp(){
+	gpio_set(USER_LED, LED_OFF);
+}
+
+// ISR to process the user's AEM
+void AEM_isr(uint8_t rx_data){
+	//Save the AEM until the enter character was recognized
+	if(rx_data != 10 && (rx_data >=48 && rx_data <=57)){
+		AEM[i] = rx_data;										// Store the next rx data
+		i++;																				// Go to the next index of the AEM array
+	}
+	else if(rx_data == 10){
+		AEM_sum = AEM[i] + AEM[i-1];				// Add the two last digits of the AEM
+		i = 0;																			// Reset the index array
+	}
+	else
+		uart_print("Wrong AEM!!");
+}
+
+// ISR if the button was pressed
+void Button_isr(){
+	button_pressed += 1;							 		// If the ISR was called, then means that the button was pressed
+	
+	if(button_pressed == 1){							// At the first time that the button was pressed
+		Timer_Period = AEM_sum;				// Now the timer period will depend from the AEM value
+		timer_init(CPU_CLOCK*Timer_Period);
+	}
+	else{																					// All the other times that the button was pressed
+		if(button_pressed %2 == 0){			// If the button pressed count is even number
+			Timer_Period = 4;										// Now the timer's period will be 4sec
+			timer_init(CPU_CLOCK*Timer_Period);
+		}
+		else{																				// Else if the button pressed count is odd number
+			Timer_Period = 3;										// Now the timer period will be 3sec
+			timer_init(CPU_CLOCK*Timer_Period);
+		}
+	}
+}
+
+//Function to initialize the button state
+void Button_init(){
+	gpio_set_mode(USER_BUTTON, PullUp);
+	gpio_set_trigger(USER_BUTTON, Falling);
+	gpio_set_callback(USER_BUTTON, Button_isr);
+}
+
+int main(){
+	// UART Initialization
+	/*uart_init(115200);													// Set the baud rate
+	uart_enable();															// Enable the uart communication
+	uart_print("Please give me your AEM");						// A message to user
+	
+	uart_set_rx_callback(AEM_isr);				// Set the uart callback function
+	
+	// Peripherals' init
+	LED_init();																	// Initialize the LED
+	Button_init();															// Initialize the button
+	
+	// Timer init
+	timer_init(CPU_CLOCK*Timer_Period);									// Set up the timer at 1sec
+	timer_enable();													// Enable the timer
+	timer_set_callback(read_temperature);
+	
+	__enable_irq();														// Enable the interrupts
+	//timer_irq_handler();										// Enable the timer interrupts 
+	
+	// While (1) loop
+	while(1){
+		__WFI();																	// Wait for interrupt
+	}*/
+	while(1){
+		int temperature = 0;
+		temperature = read_Temp_DHT11();
+		delay_ms(10);
+	}
+}

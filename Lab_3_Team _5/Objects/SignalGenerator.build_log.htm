@@ -1,0 +1,98 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Evangelos Tzouvaras, Aristotle University Racing Team Electric, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+C:\Users\User\Downloads\Lab_3_team_5\Lab_3_Team _5\SignalGenerator.uvprojx
+Project File Date:  05/24/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling DHT_11.c...
+src\DHT_11.h(38): warning:  #1295-D: Deprecated declaration DHT_data_check - give arg types
+  uint8_t DHT_data_check();
+src\DHT_11.h(43): warning:  #1295-D: Deprecated declaration read_Temp_DHT11 - give arg types
+   uint8_t read_Temp_DHT11();
+src\DHT_11.h(49): warning:  #1295-D: Deprecated declaration read_decimal_Temp_DHT - give arg types
+   uint8_t read_decimal_Temp_DHT();
+src\DHT_11.h(54): warning:  #1295-D: Deprecated declaration read_Hum_DHT11 - give arg types
+  int read_Hum_DHT11();
+src\DHT_11.c(98): warning:  #940-D: missing return statement at end of non-void function "read_Temp_DHT11" 
+  }
+src\DHT_11.c(105): warning:  #940-D: missing return statement at end of non-void function "read_decimal_Temp_DHT" 
+  }
+src\DHT_11.c(111): warning:  #940-D: missing return statement at end of non-void function "read_Hum_DHT11" 
+  }
+src\DHT_11.c: 7 warnings, 0 errors
+compiling main.c...
+src\DHT_11.h(38): warning:  #1295-D: Deprecated declaration DHT_data_check - give arg types
+  uint8_t DHT_data_check();
+src\DHT_11.h(43): warning:  #1295-D: Deprecated declaration read_Temp_DHT11 - give arg types
+   uint8_t read_Temp_DHT11();
+src\DHT_11.h(49): warning:  #1295-D: Deprecated declaration read_decimal_Temp_DHT - give arg types
+   uint8_t read_decimal_Temp_DHT();
+src\DHT_11.h(54): warning:  #1295-D: Deprecated declaration read_Hum_DHT11 - give arg types
+  int read_Hum_DHT11();
+src\main.c(91): warning:  #223-D: function "sprintf" declared implicitly
+  	sprintf(display_rate, "%d", Print_counter_max);
+src\main.c(111): warning:  #223-D: function "sprintf" declared implicitly
+  		sprintf(temp, "%d", temperature);
+src\main.c(136): warning:  #167-D: argument of type "void (*)()" is incompatible with parameter of type "void (*)(int)"
+  	gpio_set_callback(USER_BUTTON, Button_isr);
+src\main.c: 7 warnings, 0 errors
+linking...
+Program Size: Code=6856 RO-data=436 RW-data=92 ZI-data=1636  
+".\Objects\SignalGenerator.axf" - 0 Error(s), 14 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.14.0.pack
+                Keil.STM32F4xx_DFP.2.14.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 2.6.3
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\User\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+
+   * Component: Keil::Device:Startup:2.6.3
+      Source file:   MDK\Device\Source\ARM\STM32F401xx_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f401xe.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>
